@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Diagrama Clases Vertical" id="topdown001">
+    <mxGraphModel dx="1010" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Clase Cancha -->
+        <mxCell id="cancha" value="&lt;b&gt;Cancha&lt;/b&gt;&#xa;nombre: str&#xa;tipo: str&#xa;__precio_por_hora: float&#xa;---&#xa;+ get_precio(): float&#xa;+ calcular_precio(horas: int): float&#xa;+ __str__()" style="shape=umlClass;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Subclases -->
+        <mxCell id="sintetica" value="CanchaSintetica&#xa;+ calcular_precio(horas: int): float" style="shape=umlClass;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="220" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="voley" value="CanchaVoleyPlaya&#xa;+ calcular_precio(horas: int): float" style="shape=umlClass;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="220" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Herencia -->
+        <mxCell id="herencia1" style="endArrow=block;endFill=1;" edge="1" parent="1" source="sintetica" target="cancha">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="herencia2" style="endArrow=block;endFill=1;" edge="1" parent="1" source="voley" target="cancha">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Cliente -->
+        <mxCell id="cliente" value="Cliente&#xa;nombre: str&#xa;cedula: str&#xa;telefono: str&#xa;email: str&#xa;---&#xa;+ __str__()" style="shape=umlClass;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Reserva -->
+        <mxCell id="reserva" value="Reserva&#xa;cliente: Cliente&#xa;cancha: Cancha&#xa;fecha: str&#xa;hora: int&#xa;---&#xa;+ __str__()&#xa;+ coincide()" style="shape=umlClass;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="400" width="200" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Relaciones -->
+        <mxCell id="asoc1" style="endArrow=open;" edge="1" parent="1" source="reserva" target="cliente">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="asoc2" style="endArrow=open;" edge="1" parent="1" source="reserva" target="cancha">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- SistemaReservas -->
+        <mxCell id="sistema" value="SistemaReservas&#xa;canchas: list&#xa;reservas: list&#xa;---&#xa;+ hacer_reserva(...)&#xa;+ cancelar_reserva(...)&#xa;+ mostrar_reservas()&#xa;+ mostrar_disponibilidad()" style="shape=umlClass;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="400" width="220" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Composición -->
+        <mxCell id="composicion1" style="startArrow=diamond;" edge="1" parent="1" source="sistema" target="reserva">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="composicion2" style="startArrow=diamond;" edge="1" parent="1" source="sistema" target="cancha">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
