@@ -1,0 +1,15 @@
+# Ignorar archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Entornos virtuales (por si usás uno más adelante)
+env/
+venv/
+
+# Archivos de configuración local (VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
